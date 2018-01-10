@@ -1,16 +1,16 @@
 import React, { PropTypes } from "react";
-import { FormFeedback } from "reactstrap";
+import { Alert } from "reactstrap";
 
 const LiveInvalidMessage = ({ status }) => {
-	if (status) {
-		null;
-	}
+  if (status) {
+    return null;
+  }
 
-	return <Alert color="danger">Please enter a valid input!</Alert>;
+  return <Alert color="danger">Please enter a valid input!</Alert>;
 };
 
-SuccessMessage.propTypes = {
-	success: PropTypes.bool
+LiveInvalidMessage.propTypes = {
+  success: PropTypes.bool
 };
 
 export default LiveInvalidMessage;

@@ -1,17 +1,25 @@
-import React, {PropTypes} from 'react'
-import {
-  Form, FormGroup, Label, Input, Button
-} from 'reactstrap'
-import SuccessMessage from './SuccessMessage'
-import ErrorMessage from './ErrorMessage'
-import ValidationErrorMessage from './ValidationErrorMessage'
-import {getColorFromError} from '../helpers'
+import React, { PropTypes } from "react";
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import SuccessMessage from "./SuccessMessage";
+import ErrorMessage from "./ErrorMessage";
+import ValidationErrorMessage from "./ValidationErrorMessage";
+import { getColorFromError } from "../helpers";
+import LiveInvalidMessage from "./LiveInvalidMessage";
 
-
-const ControlledForm = ({onSubmit, onChangeInput, success, errors, exampleEmail, examplePassword, exampleURL}) => (
+const ControlledForm = ({
+  onSubmit,
+  onChangeInput,
+  success,
+  errors,
+  status,
+  exampleEmail,
+  examplePassword,
+  exampleURL
+}) => (
   <Form onSubmit={onSubmit}>
     <SuccessMessage success={success} />
     <ErrorMessage errors={errors} />
+    <LiveInvalidMessage status={status} />
 
     <FormGroup color={getColorFromError(errors.exampleEmail)}>
       <Label for="exampleEmail">Email</Label>
@@ -47,16 +55,16 @@ const ControlledForm = ({onSubmit, onChangeInput, success, errors, exampleEmail,
     </FormGroup>
     <Button color="primary">Submit</Button>
   </Form>
-)
+);
 
 ControlledForm.propTypes = {
   onSubmit: PropTypes.func,
   success: PropTypes.bool,
-  errors: PropTypes.object,
-}
+  errors: PropTypes.object
+};
 
 ControlledForm.defaultProps = {
-  errors: {},
-}
+  errors: {}
+};
 
-export default ControlledForm
+export default ControlledForm;
