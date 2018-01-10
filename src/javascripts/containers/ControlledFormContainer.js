@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ControlledForm from "../components/ControlledForm";
 import { validateForm } from "../helpers";
 import serialize from "form-serialize";
-import SerializedForm from "../components/SerializedForm";
 
 class ControlledFormContainer extends Component {
   constructor() {
